@@ -16,6 +16,7 @@ brew 'ruby-install'
 brew 'nodejs'
 brew 'ag'
 brew 'tig'
+brew 'rbenv'
 brew 'postgresql'
 
 # apps
