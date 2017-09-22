@@ -16,10 +16,13 @@ brew 'ruby-install'
 brew 'nodejs'
 brew 'ag'
 brew 'tig'
+brew 'postgresql'
 
 # apps
 cask 'iterm2'
 cask 'spectacle'
 cask 'google-chrome'
 cask 'flycut'
-
+cask 'rubymine'
+cask 'atom'
+cask 'zoomus'
