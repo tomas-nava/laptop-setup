@@ -18,6 +18,7 @@ brew 'tig'
 brew 'rbenv'
 brew 'postgresql'
 brew 'heroku/brew/heroku'
+brew 'phantomjs'
 
 # apps
 cask 'iterm2'
