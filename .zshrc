@@ -100,11 +100,9 @@ if [[ -z ${precmd_functions[(r)_direnv_hook]} ]]; then
   precmd_functions+=_direnv_hook;
 fi
 
-# Chruby stuff
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
-
 # FZF stuff
 export FZF_DEFAULT_OPTS='--height 100%'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(rbenv init -)"
