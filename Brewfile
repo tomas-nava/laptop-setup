@@ -20,6 +20,8 @@ brew 'rbenv'
 brew 'terraform'
 brew 'tig'
 brew 'tmate'
+brew 'tree'
+brew 'wget'
 
 # apps
 cask 'atom'
