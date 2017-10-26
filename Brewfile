@@ -25,6 +25,7 @@ brew 'wget'
 
 # apps
 cask 'atom'
+cask 'sublime-text'
 cask 'flycut'
 cask 'google-chrome'
 cask 'iterm2'
