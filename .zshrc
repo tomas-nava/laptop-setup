@@ -20,6 +20,10 @@ alias be='bundle exec'
 # time that oh-my-zsh is loaded.
 export ZSH_THEME="zagnoster"
 
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
