@@ -41,6 +41,7 @@ install_luan_vim() {
 }
 
 link_dotfiles() {
+  ln -s "$ZOTFILES/.vimrc.local $HOME/.vimrc.local"
   ln -s "$ZOTFILES/.zshrc" "$HOME/.zshrc"
   ln -s "$ZOTFILES/zagnoster.zsh-theme" "$HOME/.oh-my-zsh/themes/zagnoster.zsh-theme"
   cp "$ZOTFILES/.gitconfig" "$HOME/.gitconfig"
