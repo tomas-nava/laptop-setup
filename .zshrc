@@ -18,7 +18,7 @@ alias be='bundle exec'
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="zagnoster"
+export ZSH_THEME="tagnoster"
 
 bindkey -e
 bindkey '^[[1;9C' forward-word

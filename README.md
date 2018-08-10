@@ -51,5 +51,5 @@ The install script will:
 * clone and install [powerline fonts](https://github.com/powerline/fonts)
 * add `git ci` as an alias for `git duet-commit`
 * overwrite the current `~/.zshrc` with one from this repo
-* install the "Zagnoster" ZSH theme (agnoster with git-duet support)
+* install the "Tagnoster" ZSH theme (agnoster with git-duet support)
 * download and install the [Hybrid colorscheme](https://github.com/w0ng/vim-hybrid) for iTerm

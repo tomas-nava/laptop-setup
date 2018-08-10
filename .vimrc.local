@@ -1,3 +1,8 @@
 if exists('+colorcolumn')
   set colorcolumn=100 " Color the 80th column differently
 endif
+
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l

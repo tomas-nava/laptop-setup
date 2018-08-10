@@ -9,10 +9,6 @@ install_prefs() {
   # Link and read iterm2 prefs
   ln -s "$ZOTFILES/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
   defaults read "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
-
-  # Link and read Spectacle prefs
-  ln -s "$ZOTFILES/com.divisiblebyzero.Spectacle.plist" "$HOME/Library/Preferences/com.divisiblebyzero.Spectacle.plist"
-  defaults read "$HOME/Library/Preferences/com.divisiblebyzero.Spectacle.plist"
 }
 
 install_omz() {
@@ -43,8 +39,10 @@ install_luan_vim() {
 link_dotfiles() {
   ln -s "$ZOTFILES/.vimrc.local $HOME/.vimrc.local"
   ln -s "$ZOTFILES/.zshrc" "$HOME/.zshrc"
-  ln -s "$ZOTFILES/zagnoster.zsh-theme" "$HOME/.oh-my-zsh/themes/zagnoster.zsh-theme"
+  ln -s "$ZOTFILES/tagnoster.zsh-theme" "$HOME/.oh-my-zsh/themes/tagnoster.zsh-theme"
   cp "$ZOTFILES/.gitconfig" "$HOME/.gitconfig"
+  mkdir "$HOME/.hammerspoon"
+  ln -s "$ZOTFILES/init.lua" "$HOME/init.lua"
 }
 
 install_neovim() {

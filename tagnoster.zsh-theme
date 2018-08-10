@@ -44,7 +44,7 @@ CURRENT_BG='NONE'
   # what font the user is viewing this source code in. Do not replace the
   # escape sequence with a single literal character.
   # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
-  SEGMENT_SEPARATOR=$'\ue0b0'
+  SEGMENT_SEPARATOR=''
 }
 
 # Begin a segment
@@ -86,7 +86,7 @@ prompt_context() {
 
 prompt_git_duet() {
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    prompt_segment cyan grey
+    prompt_segment cyan black
 
     local author=$(git config duet.env.git-author-initials)
     local committer=$(git config duet.env.git-committer-initials)
@@ -104,7 +104,7 @@ prompt_git() {
   local PL_BRANCH_CHAR
   () {
     local LC_ALL="" LC_CTYPE="en_US.UTF-8"
-    PL_BRANCH_CHAR=$'\ue0a0'         # 
+    PL_BRANCH_CHAR='b='
   }
   local ref dirty mode repo_path
   repo_path=$(git rev-parse --git-dir 2>/dev/null)
@@ -153,7 +153,7 @@ prompt_git() {
       fi
     fi
 
-    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode}"
+    echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR}${vcs_info_msg_0_%% }${mode}"
   fi
 }
 
@@ -212,9 +212,9 @@ prompt_virtualenv() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}(X)"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}(R)"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}(B)"
 
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
@@ -234,6 +234,7 @@ line_two() {
   prompt_virtualenv
   prompt_context
   prompt_end
+  echo " $"
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt)$(line_two) '
