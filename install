@@ -42,7 +42,7 @@ link_dotfiles() {
   ln -s "$ZOTFILES/tagnoster.zsh-theme" "$HOME/.oh-my-zsh/themes/tagnoster.zsh-theme"
   cp "$ZOTFILES/.gitconfig" "$HOME/.gitconfig"
   mkdir "$HOME/.hammerspoon"
-  ln -s "$ZOTFILES/init.lua" "$HOME/init.lua"
+  ln -s "$ZOTFILES/init.lua" "$HOME/.hammerspoon/init.lua"
 }
 
 install_neovim() {
