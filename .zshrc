@@ -110,3 +110,4 @@ export FZF_DEFAULT_OPTS='--height 100%'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
