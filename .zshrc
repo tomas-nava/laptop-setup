@@ -111,3 +111,9 @@ export FZF_DEFAULT_OPTS='--height 100%'
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+
+# env variables for department-of-veterans-affairs/caseflow development
+export POSTGRES_HOST=localhost
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=postgres
+export NLS_LANG=AMERICAN_AMERICA.US7ASCII
