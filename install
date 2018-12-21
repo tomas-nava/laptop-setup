@@ -37,6 +37,7 @@ install_luan_vim() {
 }
 
 link_dotfiles() {
+  ln -s "$ZOTFILES/bin $HOME/bin"
   ln -s "$ZOTFILES/.vimrc.local $HOME/.vimrc.local"
   ln -s "$ZOTFILES/.zshrc" "$HOME/.zshrc"
   ln -s "$ZOTFILES/tagnoster.zsh-theme" "$HOME/.oh-my-zsh/themes/tagnoster.zsh-theme"

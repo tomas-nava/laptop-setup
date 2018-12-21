@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# get the issue number from user input
+issue=$1
+
+# extract org/repo from git remote url
+url=`git remote get-url origin`
+url=${url#git*:}
+url=${url%.git}
+
+# if no issue number was passed, try to extract it from the branch name
+if [[ -z "$issue" ]]; then
+  branch=`git symbolic-ref --short HEAD`
+  re="([0-9]+)"
+  if [[ $branch =~ $re ]]; then issue=${BASH_REMATCH[1]}; fi
+fi
+
+# open the issue url in default browser (macos only)
+open https://github.com/${url}/issues/${issue}

@@ -71,6 +71,9 @@ plugins=(git docker)
 # User configuration
 
 export PATH="/usr/local/bin:$GOPATH/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+# local bin directory
+export PATH="$HOME/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
