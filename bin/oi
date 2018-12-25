@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#    oi: open a github issue or pull request page in the default browser
+
+# usage: `oi 1234` open issue 1234 for the current repo
+#        `oi`      extract and open an issue number in the current branch
+#                  name, or open the issues index page
+
 # get the issue number from user input
 issue=$1
 
