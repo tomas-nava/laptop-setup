@@ -5,12 +5,6 @@ setup() {
   brew update
 }
 
-install_prefs() {
-  # Link and read iterm2 prefs
-  ln -s "$ZOTFILES/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
-  defaults read "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
-}
-
 install_omz() {
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   chsh -s /bin/zsh
