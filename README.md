@@ -1,55 +1,38 @@
-# Dotfiles
+# Laptop Setup
 
-This repo contains three things:
-
-1. dotfiles (.zshrc, etc)
-1. scripts to install said dotfiles and their possible prerequisites (oh-my-zsh)
-1. instructions for how to consume the above 2 things
-
-## Usage
-
-For best results, install while listening to
-[The Cowboy Bebop OST](https://itunes.apple.com/us/album/cowboy-bebop-original-soundtrack/id489780131)
+I use this repo to set up a new macOS computer for development, updating it as I move
+between projects and jobs and my requirements change.
 
 ### Prerequisites
 
-These dotfiles work best when dependencies are installed with brew wherever possible,
-`*` indicates the dependency is not available via brew.
-
-* xcode CLI tools (`xcode-select --install`) *
-* [homebrew](http://brew.sh)
-
-*Notes on ZSH*: these dotfiles assume that your shell is ZSH. While you can install
-them on a machine for which the primary login shell is `bash` they specifically target
-oh-my-zsh and zsh by installing a `.zshrc` file and omz themes. Furthermore, the shebang
-of all scripts in this repo is `#!/bin/zsh`. Nothing will run without zsh installed.
+1. Xcode CLI tools
+   ```bash
+   xcode-select --install
+   ```
+1. [homebrew](http://brew.sh) package manager
+   ```bash
+   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   ```
 
 ### Installation
 
-It is best to assume that the following paths are required as is unless a specific
-exception is noted.
-
-1. clone dotfiles:
+1. create a directory named `workspace` in your home directory.
+1. clone this repo
 
     ```bash
-    git clone git@github.com:zaksoup/dotfiles.git ~/workspace/dotfiles
+    git clone git@github.com:tomas-nava/laptop-setup.git ~/workspace/
     ```
-1. run install script
+1. run the install script
 
     ```bash
-    cd ~/workspace/dotfiles
+    cd ~/workspace/laptop-setup
     ./install
     ```
 
-The install script will:
+Read the [install script](install) to see how the computer will be configured; read
+the [Brewfile](Brewfile) to see what libraries and applications will be installed.
 
-* install git via brew
-* install the [git-duet](https://github.com/git-duet/git-duet) brew package
-* golang 1.6 via brew
-* iterm2 via `brew cask`
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) *
-* clone and install [powerline fonts](https://github.com/powerline/fonts)
-* add `git ci` as an alias for `git duet-commit`
-* overwrite the current `~/.zshrc` with one from this repo
-* install the "Tagnoster" ZSH theme (agnoster with git-duet support)
-* download and install the [Hybrid colorscheme](https://github.com/w0ng/vim-hybrid) for iTerm
+### Credit
+
+Thanks to @zaksoup for introducing me to this way of managing configuration and
+applications.
