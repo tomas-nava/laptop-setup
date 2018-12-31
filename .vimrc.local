@@ -7,6 +7,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Colorscheme config
+" overwrites some parts of luan/vim config at vimfiles/config/colors.vim
+
+try
+  colorscheme base16-tomorrow-night
+catch
+endtry
+
 " JavaScript language config
 " overwrites some parts of luan/vim config at vimfiles/config/lang/javascript.vim
 
