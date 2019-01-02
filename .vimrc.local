@@ -15,12 +15,6 @@ try
 catch
 endtry
 
-" JavaScript language config
-" overwrites some parts of luan/vim config at vimfiles/config/lang/javascript.vim
-
-autocmd! luan_js FileType
-autocmd luan_js FileType javascript setlocal foldmethod=syntax expandtab tabstop=2 shiftwidth=2 softtabstop=2
-
 " Asynchronous Lint Engine (ALE) config (w0rp/ale)
 " overwrites some parts of luan/vim config at vimfiles/config/plugin/ale.vim
 

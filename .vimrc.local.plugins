@@ -1,6 +1,5 @@
 Plug 'machakann/vim-highlightedyank'   " highlights yanks
 Plug 'pangloss/vim-javascript'         " javascript extension
-Plug 'mxw/vim-jsx'                     " react extension
 
 " override unwanted luan plugs
 " see https://github.com/junegunn/vim-plug/issues/469
