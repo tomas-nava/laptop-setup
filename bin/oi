@@ -7,19 +7,23 @@
 #                  name, or open the issues index page
 
 # get the issue number from user input
-issue=$1
+uid=$1
+what="issues"
 
 # extract org/repo from git remote url
 url=`git remote get-url origin`
 url=${url#git*:}
 url=${url%.git}
 
-# if no issue number was passed, try to extract it from the branch name
-if [[ -z "$issue" ]]; then
+# if no input was passed, try to extract an issue number from the branch name
+if [[ -z "$uid" ]]; then
   branch=`git symbolic-ref --short HEAD`
   re="([0-9]+)"
-  if [[ $branch =~ $re ]]; then issue=${BASH_REMATCH[1]}; fi
+  if [[ $branch =~ $re ]]; then uid=${BASH_REMATCH[1]}; fi
+# if input containing alphabetical characters was passed, assume it's a commit hash
+elif [[ $uid =~ [A-Za-z] ]]; then
+  what="commit"
 fi
 
-# open the issue url in default browser (macos only)
-open https://github.com/${url}/issues/${issue}
+# open the url in default browser (macos only)
+open https://github.com/${url}/${what}/${uid}
