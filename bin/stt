@@ -1,6 +1,0 @@
-#!/bin/sh
-
-#   stt: set the terminal window title
-
-# usage: `stt HELLO` set the window title to 'HELLO'
-echo "\033]0;${1}\007\c"
