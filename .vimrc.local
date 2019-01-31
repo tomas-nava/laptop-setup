@@ -2,14 +2,17 @@ if exists('+colorcolumn')
   set colorcolumn=120 " Color the 120th column differently
 endif
 
+" Shortcut definitions
 " make it easier to move between windows
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" shortcut for ripgrep with often-used flags
+" ripgrep with often-used flags
 nnoremap <Leader>rg :Ack!<Space>-F<Space>-i<Space>
+" insert the word under the cursor into a ripgrep search
+nnoremap <Leader>yrg yiw:Ack!<Space>-F<Space><C-r>0
 
 " Colorscheme config
 " overwrites some parts of luan/vim config at vimfiles/config/colors.vim
