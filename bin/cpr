@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#   cpr: open a github 'create a pull request' page in the default browser
+
+# extract org/repo from git remote url
+url=`git remote get-url origin`
+url=${url#git*:}
+url=${url%.git}
+
+# get the branch name
+branch=`git symbolic-ref --short HEAD`
+
+# open the url in default browser (macos only)
+open https://github.com/${url}/compare/${branch}?expand=1
