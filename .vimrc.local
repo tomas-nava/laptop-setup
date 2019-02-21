@@ -27,12 +27,6 @@ endtry
 " Asynchronous Lint Engine (ALE) config (w0rp/ale)
 " overwrites some parts of luan/vim config at vimfiles/config/plugin/ale.vim
 
-let g:ale_linters = {
-\   'go': ['go build', 'gofmt', 'gometalinter'],
-\   'typescript': ['tsserver', 'typecheck'],
-\   'javascript': ['eslint', 'flow'],
-\}
-
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
 let g:ale_statusline_format = ['X %d', '? %d', '']
