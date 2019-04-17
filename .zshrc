@@ -73,6 +73,8 @@ plugins=(git docker)
 export PATH="/usr/local/bin:$GOPATH/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 # local bin directory
 export PATH="$HOME/bin:$PATH"
+# python3 binaries
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
