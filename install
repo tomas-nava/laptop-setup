@@ -48,6 +48,19 @@ install_neovim() {
   pip3 install neovim
 }
 
+install_session_manager_plugin() {
+  pushd "$HOME/Downloads"
+    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"
+    unzip sessionmanager-bundle.zip
+    sudo /usr/local/bin/python3 ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
+  popd
+}
+
+uninstall_session_manager_plugin() {
+  sudo rm -rf /usr/local/sessionmanagerplugin
+  sudo rm /usr/local/bin/session-manager-plugin
+}
+
 main() {
   setup
 
@@ -60,6 +73,7 @@ main() {
   install_omz
   link_dotfiles
   install_luan_vim
+  install_session_manager_plugin
 }
 
 main $@
