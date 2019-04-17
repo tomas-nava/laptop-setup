@@ -5,11 +5,6 @@ setup() {
   brew update
 }
 
-install_omz() {
-  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-  chsh -s /bin/zsh
-}
-
 install_powerline() {
   echo "Installing powerline fonts\n"
   pushd "$HOME/workspace"
@@ -20,14 +15,15 @@ install_powerline() {
   popd
 }
 
-install_luan_vim() {
-  echo "Installing luan's vimfiles\n"
-  pushd "$HOME"
-    git clone https://github.com/luan/vimfiles.git .vim
-    pushd .vim
-      ./install
-    popd
-  popd
+install_neovim() {
+  ln -s /usr/local/bin/nvim /usr/local/bin/vim
+  source ~/.zshrc
+  pip3 install neovim
+}
+
+install_omz() {
+  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  chsh -s /bin/zsh
 }
 
 link_dotfiles() {
@@ -42,10 +38,14 @@ link_dotfiles() {
   ln -s "$SETUPDIR/init.lua" "$HOME/.hammerspoon/init.lua"
 }
 
-install_neovim() {
-  ln -s /usr/local/bin/nvim /usr/local/bin/vim
-  source ~/.zshrc
-  pip3 install neovim
+install_luan_vim() {
+  echo "Installing luan's vimfiles\n"
+  pushd "$HOME"
+    git clone https://github.com/luan/vimfiles.git .vim
+    pushd .vim
+      ./install
+    popd
+  popd
 }
 
 install_session_manager_plugin() {
@@ -67,7 +67,6 @@ main() {
   brew bundle
   brew link git --force
 
-  install_prefs
   install_powerline
   install_neovim
   install_omz
