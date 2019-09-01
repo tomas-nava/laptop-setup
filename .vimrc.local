@@ -24,6 +24,9 @@ try
 catch
 endtry
 
+" make comments italicized
+highlight Comment cterm=italic gui=italic
+
 " Asynchronous Lint Engine (ALE) config (w0rp/ale)
 " overwrites some parts of luan/vim config at vimfiles/config/plugin/ale.vim
 
