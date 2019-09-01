@@ -20,7 +20,7 @@ nnoremap <Leader>yc yiw:%s/<C-r>0//gn<CR>
 " overwrites some parts of luan/vim config at vimfiles/config/colors.vim
 
 try
-  colorscheme base16-tomorrow-night
+  colorscheme dichromatic
 catch
 endtry
 
