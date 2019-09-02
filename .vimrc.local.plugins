@@ -1,9 +1,18 @@
 Plug 'machakann/vim-highlightedyank'   " highlights yanks
 Plug 'pangloss/vim-javascript'         " javascript extension
+Plug 'yssl/QFEnter'                    " open quickfix items in last focused window
+" colorschemes
 Plug 'romainl/vim-dichromatic'         " scheme for colorblind
+Plug 'nanotech/jellybeans.vim'         " scheme chandra likes
+Plug 'drewtempelmeyer/palenight.vim'   " scheme kat likes
 
 " override unwanted luan plugs
 " see https://github.com/junegunn/vim-plug/issues/469
 Plug 'othree/yajs.vim', { 'on': [] }
 Plug 'othree/es.next.syntax.vim', { 'on': [] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'on': [] }
+Plug 'terryma/vim-multiple-cursors', { 'on': [] }
+Plug 'maxbrunsfeld/vim-emacs-bindings', { 'on': [] }
+Plug 'zchee/deoplete-clang', { 'on': [] }
+Plug 'zchee/deoplete-go', { 'on': [] }
+Plug 'sebastianmarkow/deoplete-rust', { 'on': [] }
