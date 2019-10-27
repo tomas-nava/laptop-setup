@@ -15,11 +15,3 @@ nnoremap <Leader>rg :Ack!<Space>-F<Space>-i<Space>
 nnoremap <Leader>yrg yiw:Ack!<Space>-F<Space><C-r>0
 " show a count of the occurrences of the word under the cursor in the current file
 nnoremap <Leader>yc yiw:%s/<C-r>0//gn<CR>
-
-" Asynchronous Lint Engine (ALE) config (w0rp/ale)
-" overwrites some parts of luan/vim config at vimfiles/config/plugin/ale.vim
-
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_statusline_format = ['X %d', '? %d', '']
-let g:ale_echo_msg_format = '[%linter%] %s'
