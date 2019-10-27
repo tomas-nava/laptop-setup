@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -euo pipefail
+
+default_output_filename='emoji-mashup-download'
+output_directory=$(pwd)
+
+read -p "enter tweet URL: " tweet_url
+read -p "enter filename ($default_output_filename): " user_output_filename
+
+output_filename=${user_output_filename:-$default_output_filename}
+download_filename="${output_filename}-dl"
+
+if ! curl --output /dev/null --silent --head --fail ${tweet_url}; then
+  echo "URL is not valid ($tweet_url)"
+  exit 1
+fi
+
+img_url=$(curl -s ${tweet_url} | grep 'property="og:image"' | cut -d'"' -f4 | cut -d':' -f1,2)
+extension="${img_url##*.}"
+download_path="${output_directory}/${download_filename}.${extension}"
+output_path="${output_directory}/${output_filename}.png"
+
+# download the image
+curl -s ${img_url} -o "${download_path}"
+
+# convert the image
+convert \
+  -fuzz 10% \
+  -trim \
+  -bordercolor white \
+  -border 10 \
+  -fill none \
+  -draw 'color 0,0 floodfill' \
+  -geometry 128x128 \
+  ${download_path} \
+  ${output_path}
+
+# delete the downloaded image
+rm ${download_path}
+
+# success!
+echo "Created $output_path. Enjoy!"
