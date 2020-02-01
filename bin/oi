@@ -2,13 +2,28 @@
 
 #    oi: open a github issue or pull request page in the default browser
 
-# usage: `oi 1234` open issue 1234 for the current repo
-#        `oi`      extract and open an issue number in the current branch
-#                  name, or open the issues index page
+# usage:
+#        `oi`            extract and open an issue number from the current branch
+#                        name, or open the issues index page
 
-# get the issue number from user input
-uid=$1
+#        `oi 1234`       open issue with passed id for the current repo
+
+#        `oi 043d068`    open commit with passed hash for the current repo
+#        `oi -c 0430068` (use the -c flag if the hash has no letters)
+
+
+# default to opening an issue
 what="issues"
+
+# parse the arguments
+for opt in "$@"
+do
+  if [[ "$opt" == "-c" ]] || [[ "$opt" == "-commit" ]]; then
+    what="commit"
+  else
+    uid="$opt"
+  fi
+done
 
 # extract org/repo from git remote url
 url=`git remote get-url origin`
