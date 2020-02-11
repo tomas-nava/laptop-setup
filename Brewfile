@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 # devtools
 brew 'ag'
 brew 'awscli'
+brew 'awslogs'
 tap 'codeclimate/formulae'
 brew 'codeclimate'
 brew 'ctags'
