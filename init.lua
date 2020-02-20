@@ -214,9 +214,10 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
 
     if window_frame.x == screen_frame.x + screen_frame.w - window_frame.w then
         -- fill the right half of the screen
-        window_frame.x = screen_frame.x + (screen_frame.w  / 2)
+        local half_width = math.floor(screen_frame.w / 2)
+        window_frame.x = screen_frame.x + screen_frame.w - half_width
         window_frame.y = screen_frame.y
-        window_frame.w = screen_frame.w / 2
+        window_frame.w = half_width
         window_frame.h = screen_frame.h
     else
         -- just move to the right edge of the screen
