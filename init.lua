@@ -69,7 +69,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "C", function()
     local after_frame = focused_window:frame()
 
     -- if the window was already centered, resize to set dimensions
-    local resized_wide = 801 
+    local resized_wide = 801
     local resized_high = 605
     if before_frame == after_frame and (wide ~= resized_wide or high ~= resized_high) then
 
@@ -185,62 +185,85 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
     end
 end)
 
--- focused window takes the left half of the screen
+-- focused window moves to left edge of screen, then fills the left half of the screen
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
     hs.window.animationDuration = 0
     local focused_window = hs.window.focusedWindow()
     local window_frame = focused_window:frame()
     local screen_frame = focused_window:screen():frame()
 
-    window_frame.x = screen_frame.x
-    window_frame.y = screen_frame.y
-    window_frame.w = screen_frame.w / 2
-    window_frame.h = screen_frame.h
+    if window_frame.x == screen_frame.x then
+        -- fill the left half of the screen
+        window_frame.y = screen_frame.y
+        window_frame.w = screen_frame.w / 2
+        window_frame.h = screen_frame.h
+    else
+        -- just move to the left edge of the screen
+        window_frame.x = screen_frame.x
+    end
 
     focused_window:setFrame(window_frame)
 end)
 
--- focused window takes the right half of the screen
+-- focused window moves to right edge of screen, then fills the right half of the screen
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
     hs.window.animationDuration = 0
     local focused_window = hs.window.focusedWindow()
     local window_frame = focused_window:frame()
     local screen_frame = focused_window:screen():frame()
 
-    window_frame.x = screen_frame.x + (screen_frame.w  / 2)
-    window_frame.y = screen_frame.y
-    window_frame.w = screen_frame.w / 2
-    window_frame.h = screen_frame.h
+    if window_frame.x == screen_frame.x + screen_frame.w - window_frame.w then
+        -- fill the right half of the screen
+        window_frame.x = screen_frame.x + (screen_frame.w  / 2)
+        window_frame.y = screen_frame.y
+        window_frame.w = screen_frame.w / 2
+        window_frame.h = screen_frame.h
+    else
+        -- just move to the right edge of the screen
+        window_frame.x = screen_frame.x + screen_frame.w - window_frame.w
+    end
 
     focused_window:setFrame(window_frame)
 end)
 
--- focused window takes the top half of the screen
+-- focused window moves to top edge of screen, then fills the top half of the screen
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
     hs.window.animationDuration = 0
     local focused_window = hs.window.focusedWindow()
     local window_frame = focused_window:frame()
     local screen_frame = focused_window:screen():frame()
 
-    window_frame.x = screen_frame.x
-    window_frame.y = screen_frame.y
-    window_frame.w = screen_frame.w
-    window_frame.h = (screen_frame.h - screen_frame.y) / 2
+    if window_frame.y == screen_frame.y then
+        -- fill the top half of the screen
+        window_frame.x = screen_frame.x
+        window_frame.w = screen_frame.w
+        window_frame.h = math.floor(screen_frame.h / 2)
+    else
+        -- just move to the top edge of the screen
+        window_frame.y = screen_frame.y
+    end
 
     focused_window:setFrame(window_frame)
 end)
 
--- focused window takes the bottom half of the screen
+-- focused window moves to bottom edge of screen, then fills the bottom half of the screen
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
     hs.window.animationDuration = 0
     local focused_window = hs.window.focusedWindow()
     local window_frame = focused_window:frame()
     local screen_frame = focused_window:screen():frame()
 
-    window_frame.x = screen_frame.x
-    window_frame.y = screen_frame.y + (screen_frame.h - screen_frame.y) / 2
-    window_frame.w = screen_frame.w
-    window_frame.h = (screen_frame.h - screen_frame.y) / 2
+    if window_frame.y == screen_frame.y + screen_frame.h - window_frame.h then
+        -- fill the bottom half of the screen
+        local half_height = math.floor(screen_frame.h / 2)
+        window_frame.y = screen_frame.y + screen_frame.h - half_height
+        window_frame.x = screen_frame.x
+        window_frame.w = screen_frame.w
+        window_frame.h = half_height
+    else
+        -- just move to the bottom edge of the screen
+        window_frame.y = screen_frame.y + screen_frame.h - window_frame.h
+    end
 
     focused_window:setFrame(window_frame)
 end)
