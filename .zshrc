@@ -75,6 +75,8 @@ export PATH="/usr/local/bin:$GOPATH/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:
 export PATH="$HOME/bin:$PATH"
 # python3 binaries
 export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+# v1 of aws cli for caseflow
+export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -116,6 +118,9 @@ export FZF_DEFAULT_OPTS='--height 100%'
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+
+# link rubies to homebrew's OpenSSL 1.1
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # env variables for department-of-veterans-affairs/caseflow development
 export POSTGRES_HOST=localhost
