@@ -34,7 +34,7 @@ end)
 -- all the frontmost application's windows centered on whatever screen they're on
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "A", function()
     hs.window.animationDuration = 0
-    local app = hs.application:frontmostApplication()
+    local app = hs.application.frontmostApplication()
     local app_windows = app:allWindows()
 
     local screen_frame, window_frame, wide, high
@@ -172,7 +172,7 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
         end
 
         -- step through the windows and move them to the next screen
-        local app = hs.application:frontmostApplication()
+        local app = hs.application.frontmostApplication()
         local app_windows = app:allWindows()
 
         for _, win in pairs(app_windows) do
