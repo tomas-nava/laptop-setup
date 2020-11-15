@@ -295,8 +295,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
     local min_width = 570
 
     local new_width = math.max(window_frame.w - shrink_width, min_width)
+
+    -- stick to the edges of the screen
+    local window_not_on_left_edge = window_frame.x ~= screen_frame.x
+    local window_on_right_edge = window_frame.x + window_frame.w == screen_frame.x + screen_frame.w
     local window_center = window_frame.x + (window_frame.w / 2)
-    window_frame.x = window_center - (new_width / 2)
+
+    if window_not_on_left_edge and window_on_right_edge then
+        window_frame.x = screen_frame.x + screen_frame.w - new_width
+    elseif window_not_on_left_edge then
+        window_frame.x = window_center - (new_width / 2)
+    end
+
     window_frame.w = new_width
 
     focused_window:setFrame(window_frame)
@@ -328,8 +338,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
     local min_height = 570
 
     local new_height = math.max(window_frame.h - shrink_height, min_height)
+
+    -- stick to the edges of the screen
+    local window_not_on_top_edge = window_frame.y ~= screen_frame.y
+    local window_on_bottom_edge = window_frame.y + window_frame.h == screen_frame.y + screen_frame.h
     local window_center = window_frame.y + (window_frame.h / 2)
-    window_frame.y = window_center - (new_height / 2)
+
+    if window_on_bottom_edge then
+        window_frame.y = screen_frame.y + screen_frame.h - new_height
+    elseif window_not_on_top_edge then
+        window_frame.y = window_center - (new_height / 2)
+    end
+
     window_frame.h = new_height
 
     focused_window:setFrame(window_frame)
